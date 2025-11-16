@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class RolPermissions1754747637101 implements MigrationInterface {
+export class RolPermissions1763302985523 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-            CREATE TABLE alta_demanda.rol_permisos (
+            CREATE TABLE ibd.rol_permisos (
                 rol_id INTEGER NOT NULL,
                 permiso_id INTEGER NOT NULL,
                 activo BOOLEAN DEFAULT TRUE,
@@ -19,7 +19,6 @@ export class RolPermissions1754747637101 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`DROP TABLE alta_demanda.rol_permisos`)
     }
 
 }

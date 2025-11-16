@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class Permissions1754746912111 implements MigrationInterface {
+export class Permissions1763302972102 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-            CREATE TABLE alta_demanda.permisos (
+            CREATE TABLE ibd.permisos (
                 id SERIAL PRIMARY KEY,
                 accion_id INTEGER NOT NULL,
                 recurso_id INTEGER NOT NULL,
@@ -20,7 +20,6 @@ export class Permissions1754746912111 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`DROP TABLE alta_demanda.permisos`)
     }
 
 }

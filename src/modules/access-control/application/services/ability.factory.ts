@@ -109,35 +109,40 @@ export class AbilityFactory {
     let expired = false;
 
     // Convertimos los timestamps de la base a hora Bolivia
-    const datePosUEIni = operative?.datePosUEIni ? DateTime.fromJSDate(operative.datePosUEIni, { zone: 'America/La_Paz' }) : null;
-    const datePosUEEnd = operative?.datePosUEEnd ? DateTime.fromJSDate(operative.datePosUEEnd, { zone: 'America/La_Paz' }) : null;
-    const dateRevDisIni = operative?.dateRevDisIni ? DateTime.fromJSDate(operative.dateRevDisIni, { zone: 'America/La_Paz' }) : null;
-    const dateRevDisEnd = operative?.dateRevDisEnd ? DateTime.fromJSDate(operative.dateRevDisEnd, { zone: 'America/La_Paz' }) : null;
-    const dateRevDepIni = operative?.dateRevDepIni ? DateTime.fromJSDate(operative.dateRevDepIni, { zone: 'America/La_Paz' }) : null;
-    const dateRevDepEnd = operative?.dateRevDepEnd ? DateTime.fromJSDate(operative.dateRevDepEnd, { zone: 'America/La_Paz' }) : null;
+    const dateUpdateDirIni = operative?.datePosdateUpdateDirIniUEIni ? DateTime.fromJSDate(operative.dateUpdateDirIni, { zone: 'America/La_Paz' }) : null;
+    const dateUpdateDirEnd = operative?.dateUpdateDirEnd ? DateTime.fromJSDate(operative.dateUpdateDirEnd, { zone: 'America/La_Paz' }) : null;
+    const dateBachelorIni = operative?.dateBachelorIni ? DateTime.fromJSDate(operative.dateBachelorIni, { zone: 'America/La_Paz' }) : null;
+    const dateBachelorEnd = operative?.dateBachelorEnd ? DateTime.fromJSDate(operative.dateBachelorEnd, { zone: 'America/La_Paz' }) : null;
+    // const dateRevDepIni = operative?.dateRevDepIni ? DateTime.fromJSDate(operative.dateRevDepIni, { zone: 'America/La_Paz' }) : null;
+    // const dateRevDepEnd = operative?.dateRevDepEnd ? DateTime.fromJSDate(operative.dateRevDepEnd, { zone: 'America/La_Paz' }) : null;
 
     switch(roleId) {
       case ROLES.DIRECTOR_ROLE:
-        if (datePosUEIni && datePosUEEnd) {
-          expired = now < datePosUEIni || now > datePosUEEnd;
+        if (dateUpdateDirIni && dateUpdateDirEnd) {
+          expired = now < dateUpdateDirIni || now > dateUpdateDirEnd;
         } else {
           expired = true;
         }
-        break;
-      case ROLES.DISTRICT_ROLE:
-        if(dateRevDisIni && dateRevDisEnd) {
-          expired = now < dateRevDisIni || now > dateRevDisEnd;
+        if(dateBachelorIni && dateBachelorEnd) {
+          expired = now < dateBachelorIni || now > dateBachelorEnd;
         } else {
           expired = true
         }
         break;
-      case ROLES.DEPARTMENT_ROLE:
-        if(dateRevDepIni && dateRevDepEnd) {
-          expired = now < dateRevDepIni || now > dateRevDepEnd;
-        } else {
-          expired = true
-        }
-        break;
+      // case ROLES.DISTRICT_ROLE:
+      //   if(dateBachelorIni && dateBachelorEnd) {
+      //     expired = now < dateBachelorIni || now > dateBachelorEnd;
+      //   } else {
+      //     expired = true
+      //   }
+      //   break;
+      // case ROLES.DEPARTMENT_ROLE:
+      //   if(dateRevDepIni && dateRevDepEnd) {
+      //     expired = now < dateRevDepIni || now > dateRevDepEnd;
+      //   } else {
+      //     expired = true
+      //   }
+      //   break;
       default:
         expired = false;
         break;

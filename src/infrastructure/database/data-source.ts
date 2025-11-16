@@ -13,7 +13,7 @@ export const dataSourceHD: DataSourceOptions = {
   password: DbEnvs.dbPass,
   migrations: ["dist/infrastructure/database/migrations/*.js"],
   entities: ["dist/**/*.entity{.ts,.js}"],
-  synchronize: false, // cambiar en producción
-  applicationName: 'backend-high-demand',
+  synchronize: false,
+  applicationName: 'backend-ibd',
   migrationsTableName: 'ibd.migraciones'
 }

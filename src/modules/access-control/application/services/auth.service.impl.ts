@@ -37,6 +37,7 @@ export class AuthServiceImpl implements AuthService {
   }
 
   async login(user: User): Promise<{ access_token: string }> {
+    console.log("genera token con ", user)
     return {
       access_token: this.tokenService.generateToken(user)
     };

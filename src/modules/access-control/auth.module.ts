@@ -38,7 +38,7 @@ import { PermissionController } from "./infrastructure/adapters/primary/controll
 import { NotificationPort } from "./domain/ports/outbound/notification.service";
 import { PermissionsGateway } from "./infrastructure/adapters/secondary/services/websocket.permissions.gateway";
 import { OperationsProgrammingModule } from "../operations-programming/operations-programming.module";
-import { PermissionWatcherService } from "./infrastructure/adapters/secondary/services/permission-watcher.service";
+// import { PermissionWatcherService } from "./infrastructure/adapters/secondary/services/permission-watcher.service";
 import { PlaceTypeEntity } from "./infrastructure/adapters/secondary/persistence/entities/place-type.entity";
 
 
@@ -81,14 +81,14 @@ import { PlaceTypeEntity } from "./infrastructure/adapters/secondary/persistence
     LocalStrategy,
     JwtStrategy,
     AbilityFactory,
-    PermissionWatcherService
+    // PermissionWatcherService
   ],
   imports: [
     OperationsProgrammingModule,
     PassportModule,
     JwtModule.register({
       secret: envs.jwtSecret,
-      signOptions: { expiresIn: envs.expiresIn  as any},
+      signOptions: { expiresIn: envs.expiresIn  as any },
     }),
     TypeOrmModule.forFeature([
       UserEntity,

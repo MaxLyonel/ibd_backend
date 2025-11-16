@@ -27,9 +27,9 @@ export class PermissionWatcherService {
 
     // Convertimos todos los timestamps sin zona a hora Bolivia
     const permissions = [
-      { roleId: ROLES.DIRECTOR_ROLE, start: DateTime.fromJSDate(operative.datePosUEIni, { zone: 'America/La_Paz' }), end: DateTime.fromJSDate(operative.datePosUEEnd, { zone: 'America/La_Paz' }) },
-      { roleId: ROLES.DISTRICT_ROLE, start: DateTime.fromJSDate(operative.dateRevDisIni, { zone: 'America/La_Paz' }), end: DateTime.fromJSDate(operative.dateRevDisEnd, { zone: 'America/La_Paz' }) },
-      { roleId: ROLES.DEPARTMENT_ROLE, start: DateTime.fromJSDate(operative.dateRevDepIni, { zone: 'America/La_Paz' }), end: DateTime.fromJSDate(operative.dateRevDepEnd, { zone: 'America/La_Paz' }) },
+      { roleId: ROLES.DIRECTOR_ROLE, start: DateTime.fromJSDate(operative.dateUpdateDirIni, { zone: 'America/La_Paz' }), end: DateTime.fromJSDate(operative.dateUpdateDirEnd, { zone: 'America/La_Paz' }) },
+      { roleId: ROLES.DISTRICT_ROLE, start: DateTime.fromJSDate(operative.dateUpdateDirEnd, { zone: 'America/La_Paz' }), end: DateTime.fromJSDate(operative.dateBachelorEnd, { zone: 'America/La_Paz' }) },
+      // { roleId: ROLES.DEPARTMENT_ROLE, start: DateTime.fromJSDate(operative.dateRevDepIni, { zone: 'America/La_Paz' }), end: DateTime.fromJSDate(operative.dateRevDepEnd, { zone: 'America/La_Paz' }) },
     ];
 
     const now = DateTime.now().setZone('America/La_Paz');
@@ -53,14 +53,14 @@ export class PermissionWatcherService {
     }
 
     // Operativo general
-    const operativeStart = DateTime.fromJSDate(operative.dateOpeIni, { zone: 'America/La_Paz' });
-    const operativeEnd = DateTime.fromJSDate(operative.dateOpeEnd, { zone: 'America/La_Paz' });
-    const isActive = now >= operativeStart && now <= operativeEnd;
+    // const operativeStart = DateTime.fromJSDate(operative.dateOpeIni, { zone: 'America/La_Paz' });
+    // const operativeEnd = DateTime.fromJSDate(operative.dateOpeEnd, { zone: 'America/La_Paz' });
+    // const isActive = now >= operativeStart && now <= operativeEnd;
 
-    this.gateway.notifyCurrentOperation({
-      active: envs.mode === 'development' ? true : isActive,
-      start: operativeStart.toJSDate(),
-      end: operativeEnd.toJSDate()
-    });
+    // this.gateway.notifyCurrentOperation({
+    //   active: envs.mode === 'development' ? true : isActive,
+    //   start: operativeStart.toJSDate(),
+    //   end: operativeEnd.toJSDate()
+    // });
   }
 }

@@ -40,7 +40,7 @@ export class UserRepositoryImpl implements UserRepository {
       .getOne();
 
     if (!userEntity) return null;
-    // console.log(util.inspect(userEntity, { depth: null, colors: true }));
+    console.log(util.inspect(userEntity, { depth: null, colors: true }));
     return UserEntity.toDomain(userEntity);
   }
 

@@ -1,14 +1,14 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class Conditions1754747760053 implements MigrationInterface {
+export class Conditions1763302995981 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-            CREATE TYPE alta_demanda.operador_enum AS ENUM ('=', '!=', '>', '<', '>=', '<=', 'in');
+            CREATE TYPE ibd.operador_enum AS ENUM ('=', '!=', '>', '<', '>=', '<=', 'in');
         `);
 
         await queryRunner.query(`
-            CREATE TABLE alta_demanda.condiciones (
+            CREATE TABLE ibd.condiciones (
                 id SERIAL PRIMARY KEY,
                 campo VARCHAR,
                 valor VARCHAR,
@@ -21,7 +21,6 @@ export class Conditions1754747760053 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`DROP TABLE alta_demanda.acciones`)
     }
 
 }

@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class Resources1754746670282 implements MigrationInterface {
+export class Resources1763302962098 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-            CREATE TABLE alta_demanda.recursos (
+            CREATE TABLE ibd.recursos (
                 id SERIAL PRIMARY KEY,
                 nombre VARCHAR,
                 creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -13,7 +13,6 @@ export class Resources1754746670282 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`DROP TABLE alta_demanda.recursos`);
     }
 
 }

@@ -6,7 +6,7 @@ import { RolPermissionEntity } from "./rol-permission.entity";
 import { Permission } from "@access-control/domain/models/permission.model";
 import { RolTypeEntity } from "./rol-type.entity";
 
-@Entity({ schema: 'alta_demanda', name: 'permisos'})
+@Entity({ schema: 'ibd', name: 'permisos'})
 export class PermissionEntity {
   @PrimaryGeneratedColumn()
   id: number;

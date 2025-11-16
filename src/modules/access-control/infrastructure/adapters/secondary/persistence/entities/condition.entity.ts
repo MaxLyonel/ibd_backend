@@ -11,7 +11,7 @@ export enum OperatorEnum {
   IN = 'in',
 }
 
-@Entity({ schema: 'alta_demanda', name: 'condiciones' })
+@Entity({ schema: 'ibd', name: 'condiciones' })
 export class ConditionEntity {
   @PrimaryGeneratedColumn()
   id: number;
