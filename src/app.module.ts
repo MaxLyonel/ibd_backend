@@ -6,6 +6,7 @@ import { DatabaseModule } from '@infrastructure-general/database/database.module
 import { ConstantModule } from '@infrastructure-general/constants/constant.module';
 import { OperationsProgrammingModule } from './modules/operations-programming/operations-programming.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { ConsolidateBacherlorsModule } from './modules/consolidate-bachelors/consolidate-bachelors.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     ConstantModule,
     DatabaseModule,
     OperationsProgrammingModule,
+    ConsolidateBacherlorsModule,
     ScheduleModule.forRoot()
   ],
   controllers: [],
