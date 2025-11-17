@@ -3,9 +3,9 @@ import { Injectable } from "@nestjs/common";
 // external dependencies
 import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
-import { EducationalInstitutionEntity } from "../../entities/educational-institution.entity";
 import { EducationalInstitutionRepository } from "src/modules/consolidate-bachelors/domain/ports/outbound/educational-institution.repository";
 import { mapToDto } from "src/modules/consolidate-bachelors/application/mappers/educational-institution.dto";
+import { EducationalInstitutionEntity } from "../entities/educational-institution.entity";
 // own implementations
 
 

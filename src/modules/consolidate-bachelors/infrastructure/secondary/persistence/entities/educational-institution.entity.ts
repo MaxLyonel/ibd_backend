@@ -1,7 +1,7 @@
 // external dependencies
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 // own implementations
-import { EducationalInstitution as EducationalInstitutionModel } from "../../../domain/models/educational-institution.model"
+import { EducationalInstitution as EducationalInstitutionModel } from "../../../../domain/models/educational-institution.model"
 import { EducationalInstitutionStateEntity } from "./educational-institution-state.entity";
 import { EducationalInstitutionTypeEntity } from "./educational-institution-type.entity";
 import { DependencyTypeEntity } from "./dependency-type.entity";

@@ -8,12 +8,14 @@ import { EducationalInstitutionRepository } from "./domain/ports/outbound/educat
 import { EducationalInstitutionRepositoryImpl } from "./infrastructure/secondary/persistence/repositories/educational-institution.repository.impl";
 import { EducationalInstitutionService } from "./domain/ports/inbound/educational-institution.service";
 import { EducationalInstitutionImpl } from "./application/services/educational-institution.service.impl";
-import { EducationalInstitutionEntity } from "./infrastructure/secondary/entities/educational-institution.entity";
-import { GeographicJurisdictionEntity } from "./infrastructure/secondary/entities/geographic-jurisdiction.entity";
 import { PlaceTypeEntity } from "@access-control/infrastructure/adapters/secondary/persistence/entities/place-type.entity";
 import { TeacherEntity } from "@access-control/infrastructure/adapters/secondary/persistence/entities/teacher.entity";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { EducationalInstitutionController } from "./infrastructure/primary/controllers/educational-institution.controller";
+import { EducationalInstitutionEntity } from "./infrastructure/secondary/persistence/entities/educational-institution.entity";
+import { GeographicJurisdictionEntity } from "./infrastructure/secondary/persistence/entities/geographic-jurisdiction.entity";
+import { ReportService } from "./domain/ports/outbound/report.service";
+import { ReportServiceImpl } from "./infrastructure/secondary/service/report.service.impl";
 
 
 
@@ -38,6 +40,10 @@ import { EducationalInstitutionController } from "./infrastructure/primary/contr
       provide: EducationalInstitutionService,
       useClass: EducationalInstitutionImpl
     },
+    {
+      provide: ReportService,
+      useClass: ReportServiceImpl
+    }
   ],
   imports: [
     TypeOrmModule.forFeature(
