@@ -11,18 +11,35 @@ export class ConsolidateBachelorsServiceImpl implements ConsolidateBachelorsServ
     private readonly consolidateBachelorsRepository: ConsolidateBachelorsRepository
   ){}
 
+  // Sub sistema de educación regular
   async generatePreliminaryCalculationViewRegular(gestionId: number, sie: number): Promise<any> {
     const result = await this.consolidateBachelorsRepository.generatePreliminaryCalculationViewRegular(gestionId, sie);
     return result
   }
 
   async generateReportAndAffidavitRegular(gestionId: number, sie: number): Promise<any> {
-    const result = await this.generateReportAndAffidavitRegular(gestionId, sie);
+    const result = await this.consolidateBachelorsRepository.generateReportAndAffidavitAlternative(gestionId, sie);
     return result
   }
 
   async consolidationRegular(gestionId: number, sie: number, userId: number, ibanClose: string): Promise<any> {
-    const result = await this.consolidationRegular(gestionId, sie, userId, ibanClose)
+    const result = await this.consolidateBachelorsRepository.consolidationRegular(gestionId, sie, userId, ibanClose)
+    return result
+  }
+
+  // Sub sistema de educación alternativa
+  async generatePreliminaryCalcultaionViewAlternative(gestionId: number, sie: number): Promise<any> {
+    const result = await this.consolidateBachelorsRepository.generatePreliminaryCalculationViewAlternative(gestionId, sie);
+    return result
+  }
+
+  async generateReportAndAffidavitAlternative(gestionId: number, sie: number): Promise<any> {
+    const result = await this.consolidateBachelorsRepository.generatePreliminaryCalculationViewAlternative(gestionId, sie)
+    return result
+  }
+
+  async consolidationAlternative(gestionId: number, sie: number, userId: number, ibanClose: string): Promise<any> {
+    const result = await this.consolidateBachelorsRepository.consolidateAlternative(gestionId, sie, userId, ibanClose)
     return result
   }
 

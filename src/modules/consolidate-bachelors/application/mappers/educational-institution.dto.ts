@@ -4,6 +4,7 @@ export function mapToDto(row: any): EducationalInstitutionDto {
   return {
     id: row.id,
     name: row.name,
+    type: row.type,
     state: row.state,
     scope: row.scope,
     dependency: row.dependency,

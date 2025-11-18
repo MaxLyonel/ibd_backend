@@ -24,6 +24,7 @@ export class EducationalInstitutionRepositoryImpl implements EducationalInstitut
       SELECT
         i.id AS id,
         i.institucioneducativa AS name,
+        i.institucioneducativa_tipo_id AS type,
         it.descripcion AS scope,
         dt.dependencia AS dependency,
         jg.direccion AS direction,

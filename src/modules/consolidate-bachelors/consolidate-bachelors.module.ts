@@ -16,6 +16,9 @@ import { EducationalInstitutionEntity } from "./infrastructure/secondary/persist
 import { GeographicJurisdictionEntity } from "./infrastructure/secondary/persistence/entities/geographic-jurisdiction.entity";
 import { ReportService } from "./domain/ports/outbound/report.service";
 import { ReportServiceImpl } from "./infrastructure/secondary/service/report.service.impl";
+import { ReportGeneralService } from "./domain/ports/outbound/report-general.service";
+import { ReportGeneralServiceImpl } from "./infrastructure/secondary/service/report-general.impl";
+import { HttpModule } from "@nestjs/axios";
 
 
 
@@ -43,6 +46,10 @@ import { ReportServiceImpl } from "./infrastructure/secondary/service/report.ser
     {
       provide: ReportService,
       useClass: ReportServiceImpl
+    },
+    {
+      provide: ReportGeneralService,
+      useClass: ReportGeneralServiceImpl
     }
   ],
   imports: [
@@ -53,6 +60,7 @@ import { ReportServiceImpl } from "./infrastructure/secondary/service/report.ser
         PlaceTypeEntity,
         TeacherEntity,
       ], 'ibd'),
+    HttpModule
   ],
   exports: []
 })
